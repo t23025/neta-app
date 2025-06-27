@@ -1,0 +1,26 @@
+.profileTable {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-family: 'Arial', sans-serif;
+  border: 1px solid #000000; /* 全体の外枠 */
+}
+
+.profileTable th,
+.profileTable td {
+  border: 1px solid #707070; /* 各セルの罫線 */
+  padding: 10px;
+}
+
+.profileTable th {
+  background-color: #1aa2a0;
+  text-align: center; /* 中央揃え */
+  font-weight: bold;
+  width: 20%;
+}
+
+.profileTable td {
+  text-align: left; /* 左揃え */
+  
+}
