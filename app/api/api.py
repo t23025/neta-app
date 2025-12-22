@@ -8,7 +8,7 @@ import sqlite3                              # 組み込みのSQLiteライブラ�
 app = FastAPI()
 
 # データベースファイルのパスとテーブル名
-DB_NAME = "C:/Users/T23025/Desktop/まとめ/neta-app/app/api/neta.db" # SQLiteのDBファイルのパス
+DB_NAME = "./neta.db" # SQLiteのDBファイルのパス
 TABLE_NAME = "my_table"  # 使用するテーブル名
 
 # データベース初期化関数（テーブルがなければ作成）
