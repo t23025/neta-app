@@ -39,9 +39,9 @@ export default function Result() {
     try {
       setLoading(true);
 
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
-      const response = await axios.post<Item[]>(`${API_BASE_URL}/search`, filteredPayload);
+      const response = await axios.post<Item[]>(`${API_BASE}/search`, filteredPayload);
       
       setData(response.data);
     } catch (err: unknown) {
