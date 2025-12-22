@@ -20,9 +20,9 @@ export default function Home() {
         </div>
 
         <div style={{ fontSize: "1rem" }}>
-          賀屋って普段そうやって過ごしてるんだ
+          BS賀屋
           <a
-            href="https://www.youtube.com/@賀屋って普段そうやって過ごして"
+            href="https://www.youtube.com/@bs_kaya0219"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="賀屋YouTube個チャン"

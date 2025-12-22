@@ -2,8 +2,6 @@ import React from "react";
 import Kagaprofile from "../components/Kagaprofile";
 import Kayaprofile from "../components/Kayaprofile";
 
-
-
 export default function Home() { //Homeコンポーネントを定義してして外部に公開
   return (
     <>
@@ -17,12 +15,9 @@ export default function Home() { //Homeコンポーネントを定義してし�
   </a>
 </p>
 
-
       <Kagaprofile /><br />
       <Kayaprofile />
 
     </>
   );
 }
-
-

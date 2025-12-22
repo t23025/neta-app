@@ -1,43 +1,48 @@
-"use client";
+"use client"; // Next.js App Router（v13+）でクライアントコンポーネントとして明示
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "./components/button";
-import { AvailabilitySelector } from "./components/AvailabilitySelector";
-import { Card, CardContent } from "./components/card";
-import { Input } from "./components/input";
+import React, { useState } from "react";// ReactのuseStateフックをインポート（状態管理）
+import { useRouter } from "next/navigation";// Next.jsのルーター機能をインポート（画面遷移など）
+import { Button } from "./components/button";// カスタムボタンコンポーネントをインポート
+import { AvailabilitySelector } from "./components/AvailabilitySelector";// 「あり／なし」や「男役／女役」などの選択 UI コンポーネント
+import { Card, CardContent } from "./components/card";// カード型 UI コンポーネント（ラップ用）
+import { Input } from "./components/input";// 入力フォームコンポーネントをインポート
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./components/select";
+} from "./components/select";  // カスタムセレクト（プルダウン）コンポーネント群をインポート
 
-  const MacbookPro = (): JSX.Element => {
-  const router = useRouter();
+// React コンポーネントの定義（JSX.Element 型を返す）
+const MacbookPro = (): JSX.Element => {
+  const router = useRouter(); // ルーティング操作を行うためのフックを取得
 
+  // 年の選択肢を定義（投稿年月検索用）
   const years = ["none", "2021", "2022", "2023", "2024", "2025"];
-  const months = [
-    "none", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
-  ];
-  const performanceTypes = ["none", "瀬戸内海のカロ貝屋", "瀬戸内海のカロカロ貝屋"];
+  // 月の選択肢（1月〜12月と「未選択」）
+  const months = ["none", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+  // 公演タイプの選択肢
+  const performanceTypes = ["none", "かが屋の！コント16本！2", "瀬戸内海のカロ貝屋", "瀬戸内海のカロカロ貝屋"];
 
-  const [keyword, setKeyword] = useState<string>("");
-  const [startYear, setStartYear] = useState<string>("none");
-  const [startMonth, setStartMonth] = useState<string>("none");
-  const [endYear, setEndYear] = useState<string>("none");
-  const [endMonth, setEndMonth] = useState<string>("none");
-  const [durationMax, setDurationMax] = useState<string>("");
-  const [durationMin, setDurationMin] = useState<string>("");
-  const [dialect, setDialect] = useState<string | null>(null);
-  const [kaga, setKaga] = useState<string | null>(null);
-  const [kaya, setKagaya] = useState<string | null>(null);
-  const [performanceType, setPerformanceType] = useState<string>("none");
+  // 検索フォームの状態管理（キーワードや検索条件）
+  const [keyword, setKeyword] = useState<string>(""); // キーワード検索欄
+  const [startYear, setStartYear] = useState<string>("none"); // 開始年
+  const [startMonth, setStartMonth] = useState<string>("none"); // 開始月
+  const [endYear, setEndYear] = useState<string>("none"); // 終了年
+  const [endMonth, setEndMonth] = useState<string>("none"); // 終了月
+  const [durationMax, setDurationMax] = useState<string>(""); // ネタ時間：最大（分）
+  const [durationMin, setDurationMin] = useState<string>(""); // ネタ時間：最小（分）
+  const [dialect, setDialect] = useState<string | null>(null); // 方言あり・なし
+  const [kaga, setKaga] = useState<string | null>(null); // 加賀の役（男役・女役）
+  const [kaya, setKagaya] = useState<string | null>(null); // 賀屋の役（男役・女役・ギャグ）
+  const [performanceType, setPerformanceType] = useState<string>("none"); // 公演タイトルの選択
 
+  // 検索ボタンをクリックしたときの処理
   const handleSearch = () => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(); // クエリパラメータを作るためのオブジェクト
 
+    // 各入力項目が有効な場合にURLパラメータとして追加
     if (keyword) params.append("query1", keyword);
     if (performanceType !== "none") params.append("query2", performanceType);
     if (startYear !== "none") params.append("startYear", startYear);
@@ -50,9 +55,11 @@ import {
     if (kaga) params.append("kaga", kaga);
     if (kaya) params.append("kaya", kaya);
 
+    // `/results` にクエリパラメータ付きで遷移
     router.push(`/results?${params.toString()}`);
   };
 
+    // JSX の返り値（実際の画面表示）
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#f4eddd]">
       <div className="max-w-[1512px] w-full mx-auto px-4">
@@ -195,7 +202,7 @@ import {
                     <label className="flex-shrink-0">〇加賀</label>
                     <div className="flex items-center gap-4 ml-8">
                       <AvailabilitySelector
-                        options={["男役", "女役"]}
+                        options={["男役", "女役", "出演なし", "不明"]}
                         selected={kaga}
                         onChange={setKaga}
                       />
