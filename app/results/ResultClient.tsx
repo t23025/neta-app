@@ -21,7 +21,7 @@ export default function Result() {
     durationMax: searchParams.get("durationMax") ? Number(searchParams.get("durationMax")) : undefined,
     dialect: searchParams.get("dialect"),
     kaga: searchParams.get("kaga")?.replace("男役", "男")?.replace("女役", "女")?.replace("不明", "不明")?.replace("トーク", "トーク")?.replace("声のみ", "声のみ")?.replace("出演なし", "出演なし"),
-    kaya: searchParams.get("kaya")?.replace("男役", "男")?.replace("女役", "女")?.replace("ギャグ", "ギャグ")?.replace("出演なし", "出演なし")
+    kaya: searchParams.get("kaya")?.replace("男役", "男")?.replace("女役", "女")?.replace("ギャグ", "ギャグ")?.replace("トーク", "トーク")?.replace("出演なし", "出演なし")
   };
 
   const [data, setData] = useState<Item[]>([]);
