@@ -19,11 +19,11 @@ const MacbookPro = (): JSX.Element => {
   const router = useRouter(); // ルーティング操作を行うためのフックを取得
 
   // 年の選択肢を定義（投稿年月検索用）
-  const years = ["none", "2021", "2022", "2023", "2024", "2025"];
+  const years = ["none", "2021", "2022", "2023", "2024", "2025", "2026"];
   // 月の選択肢（1月〜12月と「未選択」）
   const months = ["none", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
   // 公演タイプの選択肢
-  const performanceTypes = ["none", "かが屋の！コント16本！2", "瀬戸内海のカロ貝屋", "瀬戸内海のカロカロ貝屋"];
+  const performanceTypes = ["none", "YouTube", "かが屋の！コント16本！2", "かが屋の新春ネタ初め一週間興行『寅』", "かが屋の新春ネタ初め一週間興行『卯』", "賀屋ピンネタソロライブ「-11kg」", "瀬戸内海のカロ貝屋", "瀬戸内海のカロカロ貝屋", "かが屋の新春ネタ初め一週間興行『辰』", "かが屋の大カロ貝展", "PLAYHOUSE1224"];
 
   // 検索フォームの状態管理（キーワードや検索条件）
   const [keyword, setKeyword] = useState<string>(""); // キーワード検索欄
@@ -202,7 +202,7 @@ const MacbookPro = (): JSX.Element => {
                     <label className="flex-shrink-0">〇加賀</label>
                     <div className="flex items-center gap-4 ml-8">
                       <AvailabilitySelector
-                        options={["男役", "女役", "出演なし", "不明"]}
+                        options={["男役", "女役", "不明", "トーク", "声のみ", "出演なし"]}
                         selected={kaga}
                         onChange={setKaga}
                       />
@@ -214,7 +214,7 @@ const MacbookPro = (): JSX.Element => {
                     <label className="flex-shrink-0">〇賀屋</label>
                     <div className="flex items-center gap-4 ml-8">
                       <AvailabilitySelector
-                        options={["男役", "女役", "ギャグ"]}
+                        options={["男役", "女役", "ギャグ", "出演なし"]}
                         selected={kaya}
                         onChange={setKagaya}
                       />
