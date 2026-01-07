@@ -214,7 +214,7 @@ const MacbookPro = (): JSX.Element => {
                     <label className="flex-shrink-0">〇賀屋</label>
                     <div className="flex items-center gap-4 ml-8">
                       <AvailabilitySelector
-                        options={["男役", "女役", "ギャグ", "出演なし"]}
+                        options={["男役", "女役", "ギャグ", "トーク", "出演なし"]}
                         selected={kaya}
                         onChange={setKagaya}
                       />
