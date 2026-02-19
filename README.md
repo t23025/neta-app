@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# neta-app
 
-## Getting Started
+## 概要
+芸人「かが屋」さんのYouTubeに投稿されているネタを検索できるWebアプリです。  
 
-First, run the development server:
+「こんなネタが見たい」「あのネタってどの動画だったっけ？」といった悩みを解決することを目的に開発しました。  
+芸人さんや、かが屋のファンの方が日常的に使える検索ツールを目指しています。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 制作背景
+コントが見たいと思ったときに、  
+・キーワードで探したい  
+・演者の役柄で探したい  
+・過去に見たネタを思い出したい  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+といったニーズがあると考えました。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+そこで、「ユーザーにとって本当に使いやすい検索項目は何か？」を意識しながら設計しました。  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 使用技術
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- フロントエンド：Next.js / TailwindCSS  
+- バックエンド：FastAPI / Python  
+- データベース：SQLite3  
+- インフラ：Vercel / Render  
+- その他：Figma（画面設計）
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## こだわった点
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 検索画面では、どの操作をするとどんな結果が返ってくるのかが直感的に分かるよう、アフォーダンスを意識したUI設計を行いました。
+- 演者の役柄を「男役」「女役」といった単純な分類に限定せず、より柔軟に検索できるよう検索項目を設計しました。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 苦労した点
+
+当初、APIを実行させるためのプログラムが  
+・DB管理用API  
+・フロント検索専用エンジン  
+
+の2つに分かれており、検索結果が正常に返らない問題が発生しました。
+
+原因を分析した結果、処理構造を見直し、APIを1つに統合する設計へ変更しました。  
+その結果、安定して検索結果を返せるようになりました。
+
+---
+
+## 今後の課題
+
+- 検索速度の改善
+- 検索画面以外のUIデザインのブラッシュアップ
